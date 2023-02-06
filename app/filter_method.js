@@ -35,9 +35,11 @@ function allValue () {
     let count = 0
     let avaBooks = books.filter(book => book.quantidade > 0)
     let totalValue = avaBooks.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.preco,
+        (acc, currentValue) => acc + currentValue.preco,
         count 
     )
 
-    return totalValue 
+    totalValue = new Intl.NumberFormat('pt-BR').format(totalValue)
+    
+    return totalValue
 }
